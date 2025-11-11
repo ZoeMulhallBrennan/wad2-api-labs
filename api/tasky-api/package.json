@@ -6,11 +6,10 @@
   "author": "Zoe_Mulhall_Brennan/20106473",
   "type": "commonjs",
   "main": "index.js",
-"scripts": {
+  "scripts": {
     "start": "babel-node index.js",
     "dev": "nodemon --exec npm start"
   },
-
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@babel/eslint-parser": "^7.28.5",
@@ -20,6 +19,7 @@
   },
   "dependencies": {
     "dotenv": "^17.2.3",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "uuid": "^13.0.0"
   }
 }
