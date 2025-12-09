@@ -22,6 +22,11 @@ UserSchema.pre('save', async function() {
   const saltRounds = 10; // You can adjust the number of salt rounds
   //const user = this;
   if (this.isModified('password') || this.isNew) {
+    const isValid = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(this.password);
+    
+    if (!isValid) {
+      return new Error('Password must be at least 8 characters long and contain at least one letter, one digit, and one special character (@$!%*#?&).');
+    }
     try {
       const hash = await bcrypt.hash(this.password, saltRounds);
       this.password = hash;
